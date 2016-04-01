@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+//TODO add
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.google.gms:google-services:2.0.0-rc1'
+    }
+}
+
+//TODO add
+repositories {
+    jcenter()
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.nichtemna.gcm"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+
+    //TODO add and maybe change the version to latest
+    compile 'com.android.support:appcompat-v7:24.0.0-alpha1'
+    compile 'com.google.android.gms:play-services-gcm:8.4.0'
+}
+
+//TODO add
+apply plugin: 'com.google.gms.google-services'

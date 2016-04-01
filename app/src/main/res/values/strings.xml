@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GCM</string>
+    <string name="gcm_sever_api_key">AIzaSyDhnzqtBE253ZrFDv-clPPqv_s_yiphNlk</string>
+    <string name="gcm_sender_id">756877633200</string>
+</resources>
