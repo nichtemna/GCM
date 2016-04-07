@@ -35,7 +35,7 @@ public class MyGcmListenerService extends GcmListenerService {
             // if app is foreground - send broadcast for MainActivity to show popup
             // if app is not foreground - show notification
             if (GcmApplication.isAppForeground()) {
-                sendBroadcast(MainActivity.getMessageIntent(title, timestamp, text));
+                sendBroadcast(MainActivity.getIntentForBroadcast(title, timestamp, text));
             } else {
                 showNotification(title, timestamp, text);
             }
@@ -45,7 +45,7 @@ public class MyGcmListenerService extends GcmListenerService {
     }
 
     private void showNotification(String pTitle, String pTimestamp, String message) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = MainActivity.getIntentForNotification(this, pTitle, pTimestamp, message);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent,
                 PendingIntent.FLAG_ONE_SHOT);

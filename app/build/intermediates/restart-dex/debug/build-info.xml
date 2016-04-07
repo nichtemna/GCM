@@ -4,26 +4,41 @@
     api-level="23"
     density="420dpi"
     format="7"
-    timestamp="9927836512118" >
+    timestamp="8743498464171" >
 
     <task
         name="javac"
-        duration="154" />
+        duration="147" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="178" />
+        duration="34" />
     <task
         name="verifier"
-        duration="13" />
+        duration="1" />
 
     <artifact
-        location="/home/lina/DEVELOPMENT/PROJECTS/GCM/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
+        location="/home/lina/DEVELOPMENT/PROJECTS/GCM/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex"
+        type="DEX" />
 
-    <build timestamp="9927836512118" >
+    <build timestamp="8120002429095" >
+        <artifact
+            location="/home/lina/DEVELOPMENT/PROJECTS/GCM/app/build/outputs/apk/app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build timestamp="8640453268021" >
+        <artifact
+            location="/home/lina/DEVELOPMENT/PROJECTS/GCM/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
+            type="DEX" />
+    </build>
+    <build timestamp="8743498464171" >
+        <artifact
+            location="/home/lina/DEVELOPMENT/PROJECTS/GCM/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex"
+            type="DEX" />
+    </build>
+    <build timestamp="10588181207239" >
         <artifact
             location="/home/lina/DEVELOPMENT/PROJECTS/GCM/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />

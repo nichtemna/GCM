@@ -23,9 +23,17 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-
-    public static Intent getMessageIntent(String pTitle, String pTimestamp, String pText) {
+    public static Intent getIntentForBroadcast(String pTitle, String pTimestamp, String pText) {
         Intent intent = new Intent(BROADCAST_ACTION);
+        intent.putExtra(EXTRA_STARTED_FROM_PUSH, true);
+        intent.putExtra(TITLE, pTitle);
+        intent.putExtra(TIMESTAMP, pTimestamp);
+        intent.putExtra(TEXT, pText);
+        return intent;
+    }
+
+    public static Intent getIntentForNotification(Context pContext, String pTitle, String pTimestamp, String pText) {
+        Intent intent = new Intent(pContext, MainActivity.class);
         intent.putExtra(EXTRA_STARTED_FROM_PUSH, true);
         intent.putExtra(TITLE, pTitle);
         intent.putExtra(TIMESTAMP, pTimestamp);
@@ -40,10 +48,20 @@ public class MainActivity extends AppCompatActivity {
 
         //todo add
         initGCM();
+
         if (getIntent().hasExtra(EXTRA_STARTED_FROM_PUSH) && getIntent().getBooleanExtra(EXTRA_STARTED_FROM_PUSH, false)) {
             getMessageDialogFromIntent(getIntent());
         }
     }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if (intent.hasExtra(EXTRA_STARTED_FROM_PUSH) && intent.getBooleanExtra(EXTRA_STARTED_FROM_PUSH, false)) {
+            getMessageDialogFromIntent(intent);
+        }
+    }
+
 
     @Override
     public void onResume() {
